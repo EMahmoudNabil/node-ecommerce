@@ -5,7 +5,6 @@ const {
   updateProductValidator,
   deleteProductValidator,
 } = require("../utils/validators/productValidator");
-const authService = require("../services/authService");
 
 const {
   getProducts,
@@ -16,8 +15,14 @@ const {
   uploadProductImages,
   resizeProductImages,
 } = require("../services/productService");
+const authService = require("../services/authService");
+const reviewsRoute = require("./reviewRoute");
 
 const router = express.Router();
+// POST   /products/jkshjhsdjh2332n/reviews
+// GET    /products/jkshjhsdjh2332n/reviews
+// GET    /products/jkshjhsdjh2332n/reviews/87487sfww3
+router.use("/:productId/reviews", reviewsRoute);
 
 router
   .route("/")
